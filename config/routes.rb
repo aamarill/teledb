@@ -1,6 +1,6 @@
-# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
 Rails.application.routes.draw do
-  resources :tvshows, only: [:index]
-  root 'tvshows#index'
+  resources :popular_tvshows, only: [:index]
+  resources :tvshows, only: [:index, :create, :show]
+
+  root 'popular_tvshows#index'
 end
