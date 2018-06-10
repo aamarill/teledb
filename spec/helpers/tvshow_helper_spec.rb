@@ -19,4 +19,29 @@ describe TvshowHelper do
       expect(response["page"]).to eq(2)
     end
   end
+
+  describe "#search_tvshows" do
+    it "returns results when query is passed" do
+      query = {query: 'a'}
+      response  = helper.search_tvshows(query)
+      expect(response).to have_key('results')
+    end
+
+    it "returns errors when query is not passed" do
+      response  = helper.search_tvshows
+      expect(response).to have_key('errors')
+    end
+  end
+
+  describe "get_show_by_id" do
+    it "returns a result with name attribute when an integer is passed" do
+      response = helper.get_show_by_id(1)
+      expect(response).to have_key('name')
+    end
+
+    it "returns a status code when nothing is passed" do
+      response = helper.get_show_by_id
+      expect(response).to have_key('status_code')
+    end
+  end
 end

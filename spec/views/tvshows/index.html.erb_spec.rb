@@ -2,9 +2,10 @@ require 'rails_helper'
 include TvshowHelper
 
 RSpec.describe "tvshows/index" do
-  it "renders 20 tv shows partials" do
-    assign(:popular_tvshows, popular_tvshows )
+  it "renders _tvshows partials" do
+    query = {query: 'a'} #A query that is likely to return results
+    assign(:tvshows, search_tvshows(query)['results'] )
     render
-    expect(view).to render_template(:partial => "_popular_tvshow", :count => 20)
+    expect(view).to render_template(:partial => "_tvshows")
   end
 end

@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Teledb</title>
+    <title>TeleDb</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('app_logo.png'), :rel => 'icon', :type =>  'image/png' %>
   </head>
 
   <body>
+    <div>
+      <h1>TeleDb</h1>
+      <div><%= link_to 'Popular Shows', popular_tvshows_path %></div>
+    </div>
+
+    <div id='tvshows-searchbar'>
+      <%= form_tag("/tvshows", method: "get") do %>
+        <%= label_tag(:query, "Search for:") %>
+        <%= text_field_tag(:query, @query, {placeholder: "... search here", required: 'required'}) %>
+        <%= submit_tag("Search") %>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>

@@ -1,5 +1,5 @@
-<h1>Tvshow#index</h1>
-<p>Find me in app/views/tvshow/index.html.erb</p>
-<% @popular_tvshows['results'].each do |tvshow| %>
-  <%= render partial: 'popular_tvshow', locals: {tvshow: tvshow } %>
-<%end%>
+<h1>Tvshows#index</h1>
+
+<div id='tvshows'>
+  <%= render partial: 'tvshows', locals: {tvshows: @tvshows} %>
+</div>
