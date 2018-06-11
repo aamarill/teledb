@@ -1,12 +1,17 @@
 class TvshowsController < ApplicationController
-  include TvshowHelper
+  include ApplicationHelper
 
   def index
-    @query = params['query']
+    @searchbar_input = params['searchbar_input']
 
-    if @query && !@query.empty?
-      query = {query: @query}
-      @tvshows = search_tvshows(query)['results']
+    if @searchbar_input && !@searchbar_input.empty?
+      params['page'] ||= '1'
+      page = params['page']
+      query = {query: @searchbar_input, page: page}
+      response = search_tvshows(query)
+      @tvshows = response['results']
+      total_pages = response['total_pages']
+      @pages = surrounding_interval(1, page.to_i, total_pages.to_i)
     else
       redirect_to popular_tvshows_path
     end

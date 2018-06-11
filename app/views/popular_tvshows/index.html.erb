@@ -3,3 +3,13 @@
 <div id='popular_tvshows'>
   <%= render partial: 'tvshows/tvshows', locals: {tvshows: @tvshows} %>
 </div>
+
+<div id='page-numbers'>
+  <% locals = {                      %>
+  <%  controller: 'popular_tvshows', %>
+  <%  action: 'index',               %>
+  <%  searchbar_input: nil           %>
+  <% }                               %>
+
+  <%= render partial: 'tvshows/page_numbers', locals: locals %>
+</div>
