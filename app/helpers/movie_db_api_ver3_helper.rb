@@ -25,4 +25,22 @@ module MovieDbApiVer3Helper
       {}
     end
   end
+
+  def genres
+    path = '/genre/tv/list'
+    response = get(path)
+    genres = response['genres']
+    genres_hash = {}
+
+    genres.each do |genre|
+      genres_hash[genre['id']] = genre['name']
+    end
+
+    genres_hash
+  end
+
+  def configuration
+    path = '/configuration'
+    get(path)
+  end
 end

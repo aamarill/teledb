@@ -1,0 +1,6 @@
+<% all_genres = genres %>
+<% base_url = configuration['images']['base_url'] %>
+
+<% tvshows.each_with_index do |tvshow| %>
+  <%= render partial: 'tv_shared/tvshow_card', locals:{all_genres: all_genres, base_url: base_url, tvshow: tvshow} %>
+<% end %>

@@ -10,19 +10,22 @@
   </head>
 
   <body>
-    <div>
-      <h1>TeleDb</h1>
-      <div><%= link_to 'Popular Shows', popular_tvshows_path %></div>
+    <div id='header'>
+      <div>
+        <%= link_to 'TeleDb', popular_tvshows_path %>
+      </div>
+      <div id='tvshows-searchbar'>
+        <%= form_tag("/tvshows", method: "get") do %>
+          <%= text_field_tag(:searchbar_input, @searchbar_input, {placeholder: "search here", required: 'required'}) %>
+          <%= submit_tag("Search") %>
+        <% end %>
+      </div>
+      <div id='tabs'>
+        <div id='popular-tvshows-tab'>
+          <%= link_to 'Popular Shows', popular_tvshows_path %>
+        </div>
+      </div>
     </div>
-
-    <div id='tvshows-searchbar'>
-      <%= form_tag("/tvshows", method: "get") do %>
-        <%= label_tag(:searchbar_input, "Search for:") %>
-        <%= text_field_tag(:searchbar_input, @searchbar_input, {placeholder: "... search here", required: 'required'}) %>
-        <%= submit_tag("Search") %>
-      <% end %>
-    </div>
-
     <%= yield %>
   </body>
 </html>

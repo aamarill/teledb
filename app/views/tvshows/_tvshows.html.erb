@@ -1,4 +1,0 @@
-<% tvshows.each_with_index do |tvshow, i| %>
-  <h4><%= tvshow['name'] %></h4>
-  <%= link_to "Details", controller: 'tvshows', action: 'show', id:tvshow['id'] %>
-<% end %>

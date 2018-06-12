@@ -1,3 +1,61 @@
-<div id='tvshow-info'>
-  <%= @tvshow['original_name'] %>
+<% backdrop_path = @attrs['backdrop_path'] %>
+<% base_url      = @attrs['base_url']      %>
+<% show_name     = @attrs['show_name']     %>
+<% poster_path   = @attrs['poster_path']   %>
+<% overview      = @attrs['overview']      %>
+
+<div>
+  <% if backdrop_path %>
+      <img src="<%= "#{base_url}w780#{backdrop_path}" %>" alt="<%= "Poster image for #{show_name}" %>" >
+    <% else %>
+      <%= image_tag 'no_image.png', alt: "no image available", height: "438.98", width: "780" %>
+  <% end %>
+</div>
+
+<div>
+  <% if poster_path %>
+    <img src="<%= "#{base_url}w92#{poster_path}" %>" alt="<%= "Poster image for #{show_name}" %>" >
+  <% else %>
+    <%= image_tag 'no_image.png', alt: "no image available", height: "137.99", width: "91.99" %>
+  <% end %>
+</div>
+
+<div>
+  <a href="<%= @attrs['homepage'] %>"><%= show_name %></a>
+</div>
+
+<div>
+  <% if overview %>
+    <%= overview %>
+  <% else %>
+    No overview available.
+  <% end %>
+</div>
+
+<div>
+  <%= "Networks:" %>
+  <% @attrs['networks'].each do |network| %>
+    <% network_name = network['name'] %>
+    <%= network_name %>
+    <img src="<%= "#{network['full_logo_path']}" %>" alt="<% "#{network_name} network logo" %>" >
+  <% end %>
+</div>
+<div>
+  <%= "Number of seasons: #{@attrs['number_of_seasons']}" %>
+</div>
+<div>
+  <%= "Genres:" %>
+  <% @attrs['genres'].each do |genre| %>
+    <%= genre %>
+  <% end %>
+</div>
+<div>
+  <%= "Country: #{@attrs['origin_country']}" %>
+</div>
+
+<div>
+  <%= "Languages available:" %>
+  <% @attrs['languages'].each do |language| %>
+    <%= language %>
+  <% end %>
 </div>

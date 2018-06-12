@@ -1,15 +1,15 @@
-<h1>Tvshows#index</h1>
+<div>TV Shows</div>
 
-<div id='tvshows'>
-  <%= render partial: 'tvshows', locals: {tvshows: @tvshows} %>
+<div>
+  <%= render partial: 'tv_shared/tvshows', locals: {tvshows: @tvshows} %>
 </div>
 
-<div id='page-numbers'>
+<div>
   <% locals = {                         %>
   <%  controller: 'tvshows',    %>
   <%  action: 'index',                  %>
   <%  searchbar_input: @searchbar_input %>
   <% }                                  %>
 
-  <%= render partial: 'page_numbers', locals: locals %>
+  <%= render partial: 'tv_shared/page_numbers', locals: locals %>
 </div>

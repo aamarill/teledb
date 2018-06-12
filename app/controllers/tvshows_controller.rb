@@ -18,6 +18,7 @@ class TvshowsController < ApplicationController
   end
 
   def show
-    @tvshow = get_show_by_id(params['id'])
+    tvshow = get_show_by_id(params['id'])
+    @attrs = show_view_attributes(tvshow)
   end
 end
