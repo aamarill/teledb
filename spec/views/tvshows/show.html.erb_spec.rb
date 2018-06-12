@@ -4,9 +4,10 @@ include TvshowHelper
 RSpec.describe "tvshows/show" do
   it "has div" do
     query = {query: 'a'} #A query that is likely to return results
-    tvshow = search_tvshows(query)['results'][0]
+    tvshow_id = search_tvshows(query)['results'][0]['id']
+    tvshow = get_show_by_id(tvshow_id)
     original_name = tvshow['original_name']
-    assign(:tvshow, tvshow)
+    assign(:attrs, show_view_attributes(tvshow))
     render
 
     expect(rendered).to match original_name

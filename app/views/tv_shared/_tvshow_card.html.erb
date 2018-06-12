@@ -1,0 +1,29 @@
+<% name        = tvshow['name'] %>
+<% poster_path = tvshow['poster_path'] %>
+<% overview    = tvshow['overview'] %>
+
+<div>
+  <div>
+    <%= link_to name, controller: 'tvshows', action: 'show', id:tvshow['id'] %>
+  </div>
+
+  <div>
+    <% if poster_path %>
+      <img src="<%= "#{base_url}w92#{poster_path}" %>" alt="<%= "Poster image for #{name}" %>" >
+      <% else %>
+      <%= image_tag 'no_image.png', alt: "no image available", height: "137.99", width: "91.99" %>
+    <% end %>
+  </div>
+
+  <div>
+    <% if overview.empty? %>
+      No overview available.
+    <% else %>
+      <%= overview %>
+    <% end %>
+  </div>
+
+  <% tvshow['genre_ids'].each do |genre_id| %>
+    <div><%= all_genres[genre_id] %></div>
+  <% end%>
+</div>
