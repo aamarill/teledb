@@ -6,7 +6,7 @@ describe ApplicationHelper do
       min     = 1
       current = 8
       max     = 50
-      response = helper.surrounding_interval(min, current, max)
+      response = surrounding_interval(min, current, max)
       expect(response).to eq([3,4,5,6,7,8,9,10,11,12])
     end
 
@@ -14,7 +14,7 @@ describe ApplicationHelper do
       min     = 1
       current = 1
       max     = 50
-      response = helper.surrounding_interval(min, current, max)
+      response = surrounding_interval(min, current, max)
       expect(response).to eq([1,2,3,4,5,6,7,8,9,10])
     end
 
@@ -22,7 +22,7 @@ describe ApplicationHelper do
       min     = 1
       current = 50
       max     = 50
-      response = helper.surrounding_interval(min, current, max)
+      response = surrounding_interval(min, current, max)
       expect(response).to eq([41,42,43,44,45,46,47,48,49,50])
     end
 
@@ -30,7 +30,7 @@ describe ApplicationHelper do
       min     = 1
       current = 50
       max     = 'not an integer'
-      response = helper.surrounding_interval(min, current, max)
+      response = surrounding_interval(min, current, max)
       expect(response).to eq(nil)
     end
   end
