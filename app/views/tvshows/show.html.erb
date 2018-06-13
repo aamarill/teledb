@@ -5,7 +5,13 @@
 <% overview      = @attrs['overview']      %>
 
 <h1>
-  <a class="center center-text" href="<%= @attrs['homepage'] %>"><%= show_name %></a>
+  <% if @attrs['homepage'].empty?%>
+    <div style="text-align:center;">
+      <%= show_name %>
+    </div>
+  <% else %>
+    <a class="center center-text" href="<%= @attrs['homepage'] %>"><%= show_name %></a>
+  <% end %>
 </h1>
 <div class='row show-view-container'>
   <div class='col-sm-6'>
