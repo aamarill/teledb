@@ -2,30 +2,32 @@
 <% poster_path = tvshow['poster_path'] %>
 <% overview    = tvshow['overview']    %>
 
-<div class="container index-card">
-  <div class="row">
-    <div class="col-xs-6 card-pic">
-      <% if poster_path %>
-        <img class="fit-pic" src="<%= "#{base_url}w780#{poster_path}" %>" alt="<%= "Poster image for #{name}" %>" >
-        <% else %>
-        <%= image_tag 'no_image.png', class: "fit-pic", alt: "no image available", height: "395.63", width: "263.75" %>
-      <% end %>
-    </div>
-    <div class="col-xs-6 card-right-column">
-        <div>
-          <h4 class="card-title">
-            <%= link_to name, controller: 'tvshows', action: 'show', id:tvshow['id'] %>
-          </h4>
+  <div class="container index-card">
+    <%= link_to(controller: 'tvshows', action: 'show', id:tvshow['id']) do %>
+      <div class="row">
+        <div class="col-xs-6 card-pic">
+          <% if poster_path %>
+            <img class="fit-pic" src="<%= "#{base_url}w780#{poster_path}" %>" alt="<%= "Poster image for #{name}" %>" >
+          <% else %>
+            <%= image_tag 'no_image.png', class: "fit-pic", alt: "no image available", height: "395.63", width: "263.75" %>
+          <% end %>
         </div>
-        <div>
-          <% tvshow['genre_ids'].each do |genre_id| %>
-              <% if all_genres[genre_id] %>
-                <span class="badge badge-secondary">
-                  <%= all_genres[genre_id] %>
-                </span>
-              <% end %>
-          <% end%>
+        <div class="col-xs-6 card-right-column">
+            <div>
+              <h4 class="card-title">
+                <%= name %>
+              </h4>
+            </div>
+            <div>
+              <% tvshow['genre_ids'].each do |genre_id| %>
+                  <% if all_genres[genre_id] %>
+                    <span class="badge badge-secondary">
+                      <%= all_genres[genre_id] %>
+                    </span>
+                  <% end %>
+              <% end%>
+            </div>
         </div>
-    </div>
+      </div>
+    <% end %>
   </div>
-</div>
