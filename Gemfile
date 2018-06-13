@@ -39,8 +39,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Keep environment variables safe
 gem 'figaro'
 
-#jQuery
+# jQuery
 gem 'jquery-rails'
+
+# Sprockets (needed for Boostrap)
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+# Bootstrap
+gem 'bootstrap', '~> 4.1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -4,24 +4,28 @@
 <% poster_path   = @attrs['poster_path']   %>
 <% overview      = @attrs['overview']      %>
 
-<div>
+<a class="center center-text" href="<%= @attrs['homepage'] %>"><%= show_name %></a>
+
+<!-- <div class="container">
   <% if backdrop_path %>
-      <img src="<%= "#{base_url}w780#{backdrop_path}" %>" alt="<%= "Poster image for #{show_name}" %>" >
+      <img class='test' src="<%= "#{base_url}original#{backdrop_path}" %>" alt="<%= "Poster image for #{show_name}" %>" >
     <% else %>
-      <%= image_tag 'no_image.png', alt: "no image available", height: "438.98", width: "780" %>
+      <%= image_tag 'no_image.png',class: 'backdrop center', alt: "no image available", height: "438.98", width: "780" %>
   <% end %>
-</div>
+  <div class="bottom-left">Bottom Left</div>
+  <div class="top-left">Top Left</div>
+  <div class="top-right">Top Right</div>
+  <div class="bottom-right">Bottom Right</div>
+  <div class="centered">Centered</div>
+</div> -->
+
 
 <div>
   <% if poster_path %>
-    <img src="<%= "#{base_url}w92#{poster_path}" %>" alt="<%= "Poster image for #{show_name}" %>" >
+    <img class='test' src="<%= "#{base_url}original#{poster_path}" %>" alt="<%= "Poster image for #{show_name}" %>" >
   <% else %>
     <%= image_tag 'no_image.png', alt: "no image available", height: "137.99", width: "91.99" %>
   <% end %>
-</div>
-
-<div>
-  <a href="<%= @attrs['homepage'] %>"><%= show_name %></a>
 </div>
 
 <div>
