@@ -1,15 +1,11 @@
 <div>Popular TV Shows</div>
 
-<div>
-  <%= render partial: 'tv_shared/tvshows', locals: {tvshows: @tvshows} %>
-</div>
+<%= render partial: 'tv_shared/tvshows', locals: {tvshows: @tvshows} %>
 
-<div>
-  <% locals = {                      %>
-  <%  controller: 'popular_tvshows', %>
-  <%  action: 'index',               %>
-  <%  searchbar_input: nil           %>
-  <% }                               %>
+<% locals = {                      %>
+<%  controller: 'popular_tvshows', %>
+<%  action: 'index',               %>
+<%  searchbar_input: nil           %>
+<% }                               %>
 
-  <%= render partial: 'tv_shared/page_numbers', locals: locals %>
-</div>
+<%= render partial: 'tv_shared/page_numbers', locals: locals %>

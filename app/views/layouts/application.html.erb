@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TeleDb</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= favicon_link_tag asset_path('app_logo.png'), :rel => 'icon', :type =>  'image/png' %>
-  </head>
+<head>
+  <title>TeleDb</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= favicon_link_tag asset_path('app_logo.png'), :rel => 'icon', :type =>  'image/png' %>
+</head>
 
   <body>
-    <div id='header'>
-      <div>
-        <%= link_to 'TeleDb', popular_tvshows_path %>
-      </div>
-      <div id='tvshows-searchbar'>
-        <%= form_tag("/tvshows", method: "get") do %>
-          <%= text_field_tag(:searchbar_input, @searchbar_input, {placeholder: "search here", required: 'required'}) %>
-          <%= submit_tag("Search") %>
-        <% end %>
-      </div>
-      <div id='tabs'>
-        <div id='popular-tvshows-tab'>
-          <%= link_to 'Popular Shows', popular_tvshows_path %>
+    <div class='header row'>
+      <div class='col-sm-2'>
+        <div class='main-logo'>
+          <%= link_to popular_tvshows_path do %>
+            <%= image_tag "camera_icon.png", size:"60x60" %>
+          <% end %>
         </div>
       </div>
+      <div class='col-sm-6'>
+        <%= form_tag("/tvshows", method: "get", class: "search-bar") do %>
+          <%= text_field_tag(:searchbar_input, @searchbar_input, {placeholder: "Search", required: 'required'}) %>
+          <% submit_tag("Search") %>
+        <% end %>
+      </div>
+      <div class='col-sm-4'>
+        <%= link_to 'Popular Shows', popular_tvshows_path, class: 'popular-tab'  %>
+      </div>
     </div>
+
     <%= yield %>
   </body>
 </html>
