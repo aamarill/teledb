@@ -5,6 +5,7 @@
 * RSpec test suite
 * Figaro gem for API key
 * Deployed to Heroku
+* Boostrap for CSS 
 
 ## Database API
 [The Movie Database]( https://developers.themoviedb.org/3/getting-started/introduction) is used as the database.
