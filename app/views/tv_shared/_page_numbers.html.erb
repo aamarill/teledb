@@ -2,7 +2,7 @@
   pages:
   <% @pages.each do |page| %>
     <% if current_page == page %>
-        <%= link_to "#{page}", {controller: controller, action: action, searchbar_input: searchbar_input, page: page}, {class: "current-page"} %>
+        <%= "#{page}" %>
     <% else %>
       <%= link_to "#{page}", controller: controller, action: action, searchbar_input: searchbar_input, page: page %>
     <% end %>
