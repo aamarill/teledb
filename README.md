@@ -50,15 +50,19 @@ This the my reasoning behind my technical choices. This include trade-offs I mad
 
 * Add continuous test integration ([Circle CI](https://circleci.com/)), a style checker ([Rubocop](https://github.com/rubocop-hq/rubocop)) and a test coverage checker ([Code Climate](https://codeclimate.com/)).
 
+* Add tests for partial views.
+
 * Add more query options when searching and looking at popular shows.
 
 * Create a view that is always displayed when a route doesn't exist.
 
-* Improve the tests by creating test data up front and adding contexts.
-
 * Add caching for configuration and any other data that doesn't change frequently on the API database.
 
 * In show views, display the country and language more clearly.
+
+* Simplify or export logic from index actions in both controllers.
+
+* Improve UI/UX with more color and animation.
 
 ## For Devs :computer:
 Please see the [FORDEVELOPERS.md](FORDEVELOPERS.md) file.

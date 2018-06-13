@@ -1,25 +1,42 @@
 require "spec_helper"
 
 describe MovieDbApiVer3Helper do
+  before(:all) do
+    @successful_response = get('/discover/tv')
+    @unsuccessful_response = get('non-existent/path')
+    @unsuccessful_response2 = get('/discover/tv', "not a hash")
+    @genres = genres
+    @config = configuration
+  end
+
   describe "#get" do
-    it "returns page 1 of /discover/tv by default" do
-      response = helper.get('/discover/tv')
-      expect(response['page']).to eq(1)
+    it "returns a non-emtpy hash for an existing path" do
+      expect(@successful_response).to be_a(Hash)
+      expect(@successful_response).to_not be_empty
     end
 
     it "returns empty hash when path does not exist" do
-      response = helper.get('non-existant/path')
-      expect(response).to be_empty
-    end
-
-    it "returns empty hash when a path is not given" do
-      response = helper.get
-      expect(response).to be_empty
+      expect(@unsuccessful_response).to be_a(Hash)
+      expect(@unsuccessful_response).to be_empty
     end
 
     it "returns empty hash when the query is not in hash format" do
-      response = helper.get('/discover/tv', "not a hash")
-      expect(response).to be_empty
+      expect(@unsuccessful_response2).to be_a(Hash)
+      expect(@unsuccessful_response2).to be_empty
+    end
+  end
+
+  describe "#genres" do
+    it "returns a non-empty hash" do
+      expect(@genres).to be_a(Hash)
+      expect(@genres).to_not be_empty
+    end
+  end
+
+  describe "#configuration" do
+    it "returns a non-empty hash" do
+      expect(@config).to_not be_empty
+      expect(@config).to be_a(Hash)
     end
   end
 end
