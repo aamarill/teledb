@@ -5,7 +5,8 @@
 <% locals = {                      %>
 <%  controller: 'popular_tvshows', %>
 <%  action: 'index',               %>
-<%  searchbar_input: nil           %>
+<%  searchbar_input: nil,          %>
+<%  current_page: @page.to_i       %>
 <% }                               %>
 
 <%= render partial: 'tv_shared/page_numbers', locals: locals %>

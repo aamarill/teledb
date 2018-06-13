@@ -1,6 +1,10 @@
 <div class="page-numbers">
   pages:
   <% @pages.each do |page| %>
-    <%= link_to "#{page}", controller: controller, action: action, searchbar_input: searchbar_input, page: page %>
+    <% if current_page == page %>
+        <%= link_to "#{page}", {controller: controller, action: action, searchbar_input: searchbar_input, page: page}, {class: "current-page"} %>
+    <% else %>
+      <%= link_to "#{page}", controller: controller, action: action, searchbar_input: searchbar_input, page: page %>
+    <% end %>
   <% end %>
 </div>
