@@ -2,13 +2,15 @@
   <h3 class="page-title">No results found for '<%= @searchbar_input%>'</h3>
 <% else %>
   <h3 class="page-title">Results for '<%= @searchbar_input%>'</h3>
-<%= render partial: 'tv_shared/tvshows', locals: {tvshows: @tvshows} %>
 
-<% locals = {                         %>
-<%  controller: 'tvshows',            %>
-<%  action: 'index',                  %>
-<%  searchbar_input: @searchbar_input %>
-<% }                                  %>
+  <%= render partial: 'tv_shared/tvshows', locals: {tvshows: @tvshows} %>
 
-<%= render partial: 'tv_shared/page_numbers', locals: locals %>
+  <% locals = {                          %>
+  <%  controller: 'tvshows',             %>
+  <%  action: 'index',                   %>
+  <%  searchbar_input: @searchbar_input, %>
+  <%  current_page: @page.to_i           %>
+  <% }                                   %>
+
+  <%= render partial: 'tv_shared/page_numbers', locals: locals %>
 <% end %>
