@@ -83,7 +83,7 @@ module TvshowHelper
     tvshow['networks'].each do |network|
      network_hash = {
        'name' => network['name'],
-       'full_logo_path' => "#{base_url}w45/#{network['logo_path']}"
+       'full_logo_path' => "#{base_url}w92/#{network['logo_path']}"
       }
       networks << network_hash
     end

@@ -47,8 +47,8 @@ body{
   width: 550px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  border-radius: 5px; /* 5px rounded corners */
-  margin: auto;
+  border-radius: 5px;
+  margin: 15px auto;
   border-style: solid;
   border-color: #aaa;
   background-color: white;
@@ -58,14 +58,12 @@ body{
   width: 50%;
   border-style: solid;
   border-color: #aaa;
-  // border-radius: 5px;
   border-width: medium;
 }
 
 .card-right-column{
   width: 40%;
   margin-left: 10px;
-
 }
 
 .fit-pic{
@@ -86,14 +84,8 @@ body{
   align-content: center;
 }
 
-/* On mouse-over, add a deeper shadow */
 .index-card:hover {
     box-shadow: 20px 20px 16px 0 rgba(0,0,0,0.2);
-}
-
-/* Add rounded corners to the top left and the top right corner of the image */
-img {
-    // border-radius: 5px 5px 0 0;
 }
 
 .search-bar{
@@ -143,4 +135,39 @@ img {
 
 .main-logo:hover {
     box-shadow: 5px 5px 16px 0 rgba(0,0,0,0.2);
+}
+
+.show-view-container{
+    width: 900px;
+    margin: auto;
+}
+
+.show-view-image{
+  width: 100%;
+  border-radius: 15px;
+}
+
+.show-view-overview{
+    width: 100%;
+    padding: 10px;
+    font-size: 100%;
+}
+
+.stat{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.app-title{
+  width: 100%;
+  margin: auto;
+  font-family: "helvetica";
+  text-align: center;
+}
+
+.page-numbers{
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 200%;
 }

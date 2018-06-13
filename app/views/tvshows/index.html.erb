@@ -1,11 +1,14 @@
-<div>Results</div>
-
+<% if @tvshows.empty?%>
+  <h3>No results found for '<%= @searchbar_input%>'</h3>
+<% else %>
+  <h3>Results for '<%= @searchbar_input%>'</h3>
 <%= render partial: 'tv_shared/tvshows', locals: {tvshows: @tvshows} %>
 
 <% locals = {                         %>
-<%  controller: 'tvshows',    %>
+<%  controller: 'tvshows',            %>
 <%  action: 'index',                  %>
 <%  searchbar_input: @searchbar_input %>
 <% }                                  %>
 
 <%= render partial: 'tv_shared/page_numbers', locals: locals %>
+<% end %>

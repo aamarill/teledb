@@ -1,3 +1,6 @@
-<% @pages.each do |page| %>
-  <%= link_to "#{page}", controller: controller, action: action, searchbar_input: searchbar_input, page: page %>
-<% end %>
+<div class="page-numbers">
+  pages:
+  <% @pages.each do |page| %>
+    <%= link_to "#{page}", controller: controller, action: action, searchbar_input: searchbar_input, page: page %>
+  <% end %>
+</div>
